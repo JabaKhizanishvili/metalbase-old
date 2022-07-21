@@ -1,4 +1,11 @@
 import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { ProductBox } from "../components/Shared";
+import { useRef } from "react";
+import { CgChevronDoubleRight } from "react-icons/cg";
+import { CgChevronDoubleLeft } from "react-icons/cg";
 import HeroSlider from "../components/HeroSlider";
 // import img1 from "../assets/images/home/1.png";
 // import img2 from "../assets/images/home/2.png";
@@ -12,7 +19,28 @@ import { BiChevronRight } from "react-icons/bi";
 import { tileSlider, bathroom, doorsHome, partners } from "../components/Data";
 import ProductSlider from "../components/ProductSlider";
 
-const Home = ({ seo, page, partners }) => {
+const Home = ({ seo, page, partners, tiles }) => {
+
+    const tileSlider = [
+
+    ];
+
+    tiles.data.map((e, i) => {
+
+        tileSlider.push(
+            {
+                name: e.title,
+                size: `${e.height} X ${e.width}`,
+                img: `${e.latest_image.path}/${e.latest_image.title}`,
+                link: route("client.singleproduct.show", e.id),
+            },
+        )
+    })
+
+
+    console.log(tiles.data, 'esaa');
+    const prevRef = useRef(null);
+    const nextRef = useRef(null);
     const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
     const sharedData = usePage().props.localizations;
     return (
@@ -135,6 +163,10 @@ const Home = ({ seo, page, partners }) => {
                             ფილები
                         </Link>
                         <ProductSlider data={tileSlider} />
+
+
+
+
                     </div>
                 </section>
                 <section className="wrapper py-10">

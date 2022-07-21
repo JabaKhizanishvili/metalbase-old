@@ -108,7 +108,7 @@ Route::prefix('{locale?}')
         Route::middleware(['active'])->group(function () {
 
             // Home Page
-            Route::get('', [HomeController::class, 'index'])->name('client.home.index');
+            Route::get('', [HomeController::class, 'index'])->name('client.home.index')->withoutMiddleware('active');
 
 
             Route::get('/register', [LoginPageController::class, 'Register'])->name('client.register');

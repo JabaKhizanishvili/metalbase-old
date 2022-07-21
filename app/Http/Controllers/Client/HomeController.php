@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Models\Page;
+use App\Models\Product;
 use App\Models\Staff;
 use App\Models\Slider;
 use Illuminate\Support\Facades\App;
@@ -40,6 +41,10 @@ class HomeController extends Controller
         //dd($products);
 
         return Inertia::render('Home', [
+            // 'tiles' => Product::where('category_id', 1)->get(),
+            "tiles" => Product::with(['latestImage', 'translations'])->where("category_id", 1)->paginate(6),
+            'doors' => Product::where('category_id', 1)->take(6),
+            'bath' => Product::where('category_id', 1)->take(6),
             'partners' => Staff::with('latestImage')->get(),
             "sliders" => $sliders->get(), "page" => $page, "seo" => [
                 "title" => $page->meta_title,
