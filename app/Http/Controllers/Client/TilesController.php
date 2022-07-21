@@ -97,7 +97,8 @@ class TilesController extends Controller
         return Inertia::render(
             'Tiles2',
             [
-                "product" => Product::with('latestImage')->paginate(10),
+                "product" => Product::with(['latestImage', 'translations'])->where("category_id", 2)->paginate(10),
+                "product1" => Product::with(['latestImage', 'translations'])->where("category_id", 3)->paginate(10),
                 "sliders" => $sliders->get(),
                 "page" => $page,
                 "seo" => [

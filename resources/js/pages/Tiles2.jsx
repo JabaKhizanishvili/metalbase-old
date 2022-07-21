@@ -7,7 +7,7 @@ import { ProductBox } from "../components/Shared";
 import { BiChevronRight } from "react-icons/bi";
 import Layout from "../Layouts/Layout";
 
-const Tiles2 = ({ seo, page, product }) => {
+const Tiles2 = ({ seo, page, product, product1 }) => {
     let links = function (links) {
         let rows = [];
         //links.shift();
@@ -138,7 +138,7 @@ const Tiles2 = ({ seo, page, product }) => {
                         <img className="inline-block" src="/assets/images/icons/svg/tiles2.svg" /> მეტლახი
                     </div>
                     <div className="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-5 pb-20">
-                        {product.data.map((item, index) => {
+                        {product1.data.map((item, index) => {
                             return (
                                 // <ProductBox
                                 //     key={index}
@@ -184,9 +184,9 @@ const Tiles2 = ({ seo, page, product }) => {
                     {/* pagination */}
 
                     <div className="pb-20 flex items-center justify-center pagination flex centered">
-                        {linksPrev(product.links)}
+                        {linksPrev(product1.links)}
                         <button className="pageNum">{links(product.links)}</button>
-                        {linksNext(product.links)}
+                        {linksNext(product1.links)}
                     </div>
                 </div>
             </div>
