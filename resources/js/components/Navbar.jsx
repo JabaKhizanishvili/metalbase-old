@@ -47,7 +47,7 @@ const Navbar = ({ seo, page }) => {
             icon: <img style={{ backgroundColor: "#fff", }} src="/assets/images/icons/svg/tiles2.svg" />,
         },
         {
-            link: route("client.tiles2.index"),
+            link: route("client.tiles3.index"),
             text: __("client.navbar_laminate", sharedData),
             icon: <img style={{ backgroundColor: "#fff", }} src="//assets/images/icons/svg/laminate.svg" />,
         },

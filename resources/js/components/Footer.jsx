@@ -1,13 +1,34 @@
 import { Link, usePage, useForm } from '@inertiajs/inertia-react'
 import React from 'react';
 import { contactInfo } from "./Data";
-import { categories, categoryDropdown, navigations } from "./NavData";
+import { categories, categoryDropdown } from "./NavData";
 import { Form } from "./Shared";
 // import { ReactComponent as Pin } from "/assets/images/icons/svg/pin.svg";
 // import { ReactComponent as Tel } from "/assets/images/icons/svg/tel.svg";
 
 const Footer = () => {
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    const sharedData = usePage().props.localizations;
     const { errors, gphone, gemail, gaddress } = usePage().props;
+
+    const navigations = [
+        {
+            link: route("client.home.index"),
+            text: __("client.navbar_main", sharedData),
+        },
+        {
+            link: route("client.aboutus"),
+            text: __("client.navbar_aboutus", sharedData),
+        },
+        {
+            link: route("client.partners.index"),
+            text: __("client.navbar_partners", sharedData),
+        },
+        {
+            link: route("client.contact.index"),
+            text: __("client.navbar_contact", sharedData),
+        },
+    ];
 
     return (
         <div className="bg-custom-blue-900 py-10 sm:pb-20 text-white">

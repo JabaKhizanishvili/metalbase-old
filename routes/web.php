@@ -133,6 +133,8 @@ Route::prefix('{locale?}')
             Route::get('tiles', [TilesController::class, 'index'])->name('client.tiles.index')->withoutMiddleware('active');
             //tiles2
             Route::get('tiles2', [TilesController::class, 'tiles2'])->name('client.tiles2.index')->withoutMiddleware('active');
+            //tiles3
+            Route::get('tiles3', [TilesController::class, 'tiles3'])->name('client.tiles3.index')->withoutMiddleware('active');
             // doors
             Route::get('doors', [TilesController::class, 'doors'])->name('client.doors.index')->withoutMiddleware('active');
             //bathroom
