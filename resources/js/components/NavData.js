@@ -37,7 +37,7 @@ export const categories = [
     {
         link: route("client.tiles2.index"),
         text: "ლამინატი",
-        icon: <img style={{ backgroundColor: "#fff", }} src="//assets/images/icons/svg/laminate.svg" />,
+        icon: <img style={{ backgroundColor: "#fff", }} src="/assets/images/icons/svg/laminate.svg" />,
     },
     {
         link: route("client.doors.index"),
