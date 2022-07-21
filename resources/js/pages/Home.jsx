@@ -16,17 +16,15 @@ import HeroSlider from "../components/HeroSlider";
 import { Link, usePage } from '@inertiajs/inertia-react'
 import Layout from "../Layouts/Layout";
 import { BiChevronRight } from "react-icons/bi";
-import { tileSlider, bathroom, doorsHome, partners } from "../components/Data";
+// import { bathroom, doorsHome } from "../components/Data";
 import ProductSlider from "../components/ProductSlider";
 
-const Home = ({ seo, page, partners, tiles }) => {
+const Home = ({ seo, page, partners, tiles, doors, bath }) => {
 
-    const tileSlider = [
-
-    ];
+    console.log(doors.data);
+    const tileSlider = [], doorsHome = [], bathroom = [];
 
     tiles.data.map((e, i) => {
-
         tileSlider.push(
             {
                 name: e.title,
@@ -37,8 +35,32 @@ const Home = ({ seo, page, partners, tiles }) => {
         )
     })
 
+    if (doors.data) {
+        doors.data.map((e, i) => {
+            doorsHome.push(
+                {
+                    name: e.title,
+                    size: `${e.height} X ${e.width}`,
+                    img: `${e.latest_image.path}/${e.latest_image.title}`,
+                    link: route("client.singleproduct.show", e.id),
+                },
+            )
+        })
+    }
+    if (bath.data) {
+        bath.data.map((e, i) => {
+            doorsHome.push(
+                {
+                    name: e.title,
+                    size: `${e.height} X ${e.width}`,
+                    img: `${e.latest_image.path}/${e.latest_image.title}`,
+                    link: route("client.singleproduct.show", e.id),
+                },
+            )
+        })
+    }
 
-    console.log(tiles.data, 'esaa');
+
     const prevRef = useRef(null);
     const nextRef = useRef(null);
     const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
