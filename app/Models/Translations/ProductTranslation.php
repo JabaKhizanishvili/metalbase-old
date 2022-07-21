@@ -24,7 +24,7 @@ class ProductTranslation extends BaseTranslationModel
         'title',
         'description',
         'brand_id',
-        'category_id',
+        // 'category_id',
         'width',
         'height',
         'madein',

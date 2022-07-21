@@ -46,7 +46,7 @@ class TilesController extends Controller
             'Tiles',
             [
                 // "product" => Product::with('latestImage')->where('category_id', ('7'))->paginate(10),
-                "product" => Product::with('latestImage')->paginate(10),
+                "product" => Product::with(['latestImage', 'translations'])->where("category_id", 1)->paginate(10),
                 "sliders" => $sliders->get(),
                 "page" => $page,
                 "seo" => [

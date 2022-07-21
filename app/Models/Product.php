@@ -84,7 +84,7 @@ class Product extends Model implements Searchable
         'title',
         'description',
         'brand_id',
-        'category_id',
+        // 'category_id',
         'width',
         'height',
         'madein',

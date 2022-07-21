@@ -7,6 +7,8 @@ import { BiChevronRight } from "react-icons/bi";
 import Layout from "../Layouts/Layout";
 
 const Tiles = ({ seo, page, product, name }) => {
+    console.log(product, 'esaa');
+
     let links = function (links) {
         let rows = [];
         //links.shift();
