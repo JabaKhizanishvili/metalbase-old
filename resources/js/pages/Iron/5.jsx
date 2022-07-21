@@ -9,7 +9,8 @@ import { FaPhone } from "react-icons/fa";
 // import img4 from "../../assets/images/iron/4.png";
 // import img5 from "../../assets/images/iron/5.png";
 // import img6 from "../../assets/images/iron/6.png";
-import { Link } from "react-router-dom";
+import { Link } from '@inertiajs/inertia-react';
+import Layout from "../../Layouts/Layout";
 
 const Iron1 = () => {
     const otherIrons = [
@@ -47,9 +48,9 @@ const Iron1 = () => {
                     <BiChevronRight className="inline-block mx-1" />
                     <p className="opacity-50  inline-block lowercase">რკინეული</p>
                     <BiChevronRight className="inline-block mx-1" />
-                    <p className="inline-block lowercase">პროფილი - მილკვადრატი</p>
+                    <p className="inline-block lowercase">ლითონის ფურცელი დახვრეტილი</p>
                 </div>
-                <div className="text-3xl my-10">პროფილი - მილკვადრატი</div>
+                <div className="text-3xl my-10">ლითონის ფურცელი დახვრეტილი</div>
             </div>
             <div
                 className="py-10 mb-20 bg-cover bg-no-repeat bg-center relative overflow-hidden"

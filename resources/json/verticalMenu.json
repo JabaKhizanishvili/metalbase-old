@@ -59,13 +59,6 @@
                     "slug": "change_password"
                 },
                 {
-                    "url": "category.index",
-                    "name": "Categories",
-                    "i18n": "change password",
-                    "icon": "g_translate",
-                    "slug": "change_password"
-                },
-                {
                     "url": "brand.index",
                     "name": "Brands",
                     "i18n": "change password",

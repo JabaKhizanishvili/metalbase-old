@@ -7,6 +7,56 @@ import { Form } from "./Shared";
 // import { ReactComponent as Tel } from "/assets/images/icons/svg/tel.svg";
 
 const Footer = () => {
+    const categoryDropdown = [
+        {
+            link: route("client.metalprofiles.index"),
+            text: " პროფილი - მილკვადრატი",
+        },
+        {
+            link: route("client.mile.index"),
+            text: "მილი",
+        },
+        {
+            link: route("client.metalpaper.index"),
+            text: "ლითონის ფურცელი",
+        },
+        {
+            link: route("client.metalpaper.index1"),
+            text: "ლითონის ფურცელი დაჟატული",
+        },
+        {
+            link: route("client.metalpaper.index2"),
+            text: "ლითონის ფურცელი დახვრეტილი",
+        },
+        {
+            link: route("client.ortisebri.index"),
+            text: "ორტესებრი",
+        },
+        {
+            link: route("client.shveleri.index"),
+            text: "შველერი",
+        },
+        {
+            link: route("client.kutxovana.index"),
+            text: "კუთხოვანა",
+        },
+        {
+            link: route("client.zolovana.index"),
+            text: "ზოლოვანა",
+        },
+        {
+            link: route("client.kvadrati.index"),
+            text: "კვადრატი",
+        },
+        {
+            link: route("client.granula.index"),
+            text: "გლინულა",
+        },
+        {
+            link: route("client.armatura.index"),
+            text: "არმატურა",
+        },
+    ];
     const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
     const sharedData = usePage().props.localizations;
     const { errors, gphone, gemail, gaddress } = usePage().props;
@@ -27,6 +77,34 @@ const Footer = () => {
         {
             link: route("client.contact.index"),
             text: __("client.navbar_contact", sharedData),
+        },
+    ];
+
+    const categories = [
+        {
+            link: route("client.tiles.index"),
+            text: __("client.navbar_tiles", sharedData),
+            icon: <img style={{ backgroundColor: "#fff", }} src="/assets/images/icons/svg/tiles.svg" />,
+        },
+        {
+            link: route("client.tiles2.index"),
+            text: __("client.navbar_tiles2", sharedData),
+            icon: <img style={{ backgroundColor: "#fff", }} src="/assets/images/icons/svg/tiles2.svg" />,
+        },
+        {
+            link: route("client.tiles3.index"),
+            text: __("client.navbar_laminate", sharedData),
+            icon: <img style={{ backgroundColor: "#fff", }} src="/assets/images/icons/svg/laminate.svg" />,
+        },
+        {
+            link: route("client.doors.index"),
+            text: __("client.navbar_doors", sharedData),
+            icon: <img style={{ backgroundColor: "#fff", }} src="/assets/images/icons/svg/door.svg" />,
+        },
+        {
+            link: route("client.bathroom.index"),
+            text: __("client.navbar_bathroom", sharedData),
+            icon: <img style={{ backgroundColor: "#fff", }} src="/assets/images/icons/svg/bathroom.svg" />,
         },
     ];
 

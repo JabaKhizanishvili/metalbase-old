@@ -12,9 +12,9 @@ import { CgChevronDoubleRight } from "react-icons/cg";
 // import tile5 from "../assets/images/products/5.png";
 // import { Link } from "react-router-dom";
 
-const SingleProduct = ({ seo, page, product }) => {
+const SingleProduct = ({ seo, page, product, sameproduct }) => {
 
-    console.log(product, 'esa');
+    console.log(sameproduct, 'esa');
     const otherItems = [
         {
             img: "/assets/images/products/1.png",
@@ -86,21 +86,25 @@ const SingleProduct = ({ seo, page, product }) => {
                 </div>
                 <div className="mb-5">მსგავსი პროდუქტი</div>
                 <div className="block pb-20">
-                    {otherItems.map((item, index) => {
+                    {sameproduct.map((item, index) => {
                         return (
                             <Link
-                                href="/single-product"
+                                href={route("client.singleproduct.show", item.id)}
                                 key={index}
                                 className="mr-8 mb-8 w-32 inline-block align-top"
                             >
                                 <div className="w-full h-32 mb-3 overflow-hidden">
-                                    <img
-                                        src={item.img}
-                                        alt=""
-                                        className="w-full h-full object-cover"
-                                    />
+                                    <img className="main_img"
+                                        src={item.latest_image != null
+                                            ? "/" +
+                                            item.latest_image.path +
+                                            "/" +
+                                            item.latest_image.title
+                                            : null}
+
+                                        alt="" />
                                 </div>
-                                <div className="text-sm">{item.name}</div>
+                                <div className="text-sm">{item.title}</div>
                             </Link>
                         );
                     })}

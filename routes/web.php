@@ -24,6 +24,7 @@ use App\Http\Controllers\Client\AboutUsController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Client\ServiceController;
+use App\Http\Controllers\Client\IronController;
 use App\Http\Controllers\Client\DocumentationController;
 use App\Http\Controllers\Client\OurTeamController;
 use App\Http\Controllers\Client\LoginPageController;
@@ -142,5 +143,19 @@ Route::prefix('{locale?}')
             //singleproduct
             Route::get('singleproduct', [TilesController::class, 'singleproduct'])->name('client.singleproduct.index');
             Route::get('/singleproduct/{singleproduct}', [\App\Http\Controllers\Client\TilesController::class, 'show'])->name('client.singleproduct.show')->withoutMiddleware('active');
+
+            //irons
+            Route::get('metalprofiles', [IronController::class, 'index'])->name('client.metalprofiles.index')->withoutMiddleware('active');
+            Route::get('metalmiles', [IronController::class, 'mile'])->name('client.mile.index')->withoutMiddleware('active');
+            Route::get('metalpaper', [IronController::class, 'metalpaper'])->name('client.metalpaper.index')->withoutMiddleware('active');
+            Route::get('metalpaper1', [IronController::class, 'metalpaper'])->name('client.metalpaper.index1')->withoutMiddleware('active');
+            Route::get('metalpaper2', [IronController::class, 'metalpaper'])->name('client.metalpaper.index2')->withoutMiddleware('active');
+            Route::get('ortisebri', [IronController::class, 'ortisebri'])->name('client.ortisebri.index')->withoutMiddleware('active');
+            Route::get('shveleri', [IronController::class, 'shveleri'])->name('client.shveleri.index')->withoutMiddleware('active');
+            Route::get('kutxovana', [IronController::class, 'kutxovana'])->name('client.kutxovana.index')->withoutMiddleware('active');
+            Route::get('zolovana', [IronController::class, 'zolovana'])->name('client.zolovana.index')->withoutMiddleware('active');
+            Route::get('kvadrati', [IronController::class, 'kvadrati'])->name('client.kvadrati.index')->withoutMiddleware('active');
+            Route::get('granula', [IronController::class, 'granula'])->name('client.granula.index')->withoutMiddleware('active');
+            Route::get('armatura', [IronController::class, 'armatura'])->name('client.armatura.index')->withoutMiddleware('active');
         });
     });

@@ -145,7 +145,7 @@ class TilesController extends Controller
         //dd($products);
 
         return Inertia::render(
-            'Tiles',
+            'Laminate',
             [
                 "product" => Product::with(['latestImage', 'translations'])->where("category_id", 4)->paginate(10),
                 // "product1" => Product::with(['latestImage', 'translations'])->where("category_id", 5)->paginate(10),
@@ -197,6 +197,8 @@ class TilesController extends Controller
             'Doors',
             [
                 // "staff" => Staff::all(),
+                "product" => Product::with(['latestImage', 'translations'])->where("category_id", 5)->paginate(10),
+                "product1" => Product::with(['latestImage', 'translations'])->where("category_id", 6)->paginate(10),
                 "sliders" => $sliders->get(),
                 "page" => $page,
                 "seo" => [
@@ -247,6 +249,7 @@ class TilesController extends Controller
             'Bathroom',
             [
                 // "staff" => Staff::all(),
+                "product" => Product::with(['latestImage', 'translations'])->where("category_id", 7)->paginate(10),
                 "sliders" => $sliders->get(),
                 "page" => $page,
                 "seo" => [
@@ -323,9 +326,15 @@ class TilesController extends Controller
     public function show(string $locale, $slug)
     {
         $page = Page::where('key', 'home')->firstOrFail();
-
+        $product = Product::with('latestImage')->find($slug);
+        // dd($product->category_id);
         return Inertia::render('SingleProduct', [
             "product" => Product::with('latestImage')->find($slug),
+            // "sameproduct" => Product::with('latestImage')->find($slug),
+            "sameproduct" => Product::where([
+                ['id', '!=', $slug],
+                ['category_id', '!=', $product->category_id],
+            ])->with('latestImage')->latest()->limit(6)->get(),
             "seo" => [
                 "title" => $page->meta_title ?? $page->meta_title,
                 "description" => $page->meta_description ?? $page->meta_description,
