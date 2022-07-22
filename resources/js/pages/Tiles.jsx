@@ -7,7 +7,10 @@ import { BiChevronRight } from "react-icons/bi";
 import Layout from "../Layouts/Layout";
 
 const Tiles = ({ seo, page, product, name }) => {
-    console.log(product, 'esaa');
+
+
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    const sharedData = usePage().props.localizations;
 
     let links = function (links) {
         let rows = [];
@@ -135,13 +138,13 @@ const Tiles = ({ seo, page, product, name }) => {
             <div className="bg-neutral-100">
                 <div className="wrapper">
                     <div className="block pt-6">
-                        <p className="opacity-50 inline-block  lowercase">მთავარი</p>
+                        <p className="opacity-50 inline-block  lowercase">{__("client.navbar_main", sharedData)}</p>
                         <BiChevronRight className="inline-block mx-1" />
-                        <p className="  inline-block lowercase">ფილები</p>
+                        <p className="  inline-block lowercase">{__("client.navbar_tiles", sharedData)}</p>
                     </div>
                     <div className="mt-10 mb-12 text-2xl ">
                         {/* <TilesIcon className="inline-block" /> გრანიტის ფილები */}
-                        <img className="inline-block" src="/assets/images/icons/svg/tiles.svg" /> გრანიტის ფილები
+                        <img className="inline-block" src="/assets/images/icons/svg/tiles.svg" /> {__("client.navbar_tiles", sharedData)}
                     </div>
                     <div className="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-5 pb-20">
                         {product.data.map((item, index) => {
@@ -172,7 +175,7 @@ const Tiles = ({ seo, page, product, name }) => {
                                             : null} alt="" />
                                     </div>
                                     <Link href={route("client.singleproduct.show", item.id)} className="lowercase ">
-                                        ნახე სრულად <BiChevronRight className="inline-block" />
+                                        {__("client.product.btn", sharedData)} <BiChevronRight className="inline-block" />
                                     </Link>
                                 </div>
 
