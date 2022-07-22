@@ -1566,6 +1566,14 @@ img {
     right: auto;
   }
 
+  .lg\:right-1 {
+    right: 0.25rem;
+  }
+
+  .lg\:right-5 {
+    right: 1.25rem;
+  }
+
   .lg\:mx-0 {
     margin-left: 0px;
     margin-right: 0px;

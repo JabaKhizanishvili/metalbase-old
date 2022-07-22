@@ -157,5 +157,9 @@ Route::prefix('{locale?}')
             Route::get('kvadrati', [IronController::class, 'kvadrati'])->name('client.kvadrati.index')->withoutMiddleware('active');
             Route::get('granula', [IronController::class, 'granula'])->name('client.granula.index')->withoutMiddleware('active');
             Route::get('armatura', [IronController::class, 'armatura'])->name('client.armatura.index')->withoutMiddleware('active');
+
+            //search
+
+            Route::get('search', [TilesController::class, 'search'])->name('client.search.index')->withoutMiddleware('active');
         });
     });

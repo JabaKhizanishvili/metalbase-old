@@ -20,7 +20,6 @@ class HomeController extends Controller
 
 
 
-
         $page = Page::where('key', 'home')->firstOrFail();
 
         $images = [];
@@ -39,7 +38,6 @@ class HomeController extends Controller
 
 
         //dd($products);
-
         return Inertia::render('Home', [
             // 'tiles' => Product::where('category_id', 1)->get(),
             "tiles" => Product::with(['latestImage', 'translations'])->where("category_id", 1)->paginate(6),

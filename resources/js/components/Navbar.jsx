@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, usePage } from '@inertiajs/inertia-react'
 // import Logo from "../assets/images/logo.png";
 import { FaPhone } from "react-icons/fa";
@@ -9,10 +9,29 @@ import { RiMenuAddFill } from "react-icons/ri";
 // import Ge from "../assets/images/icons/ge.png";
 // import En from "../assets/images/icons/en.png";
 import { categoryDropdown } from "./NavData";
-import { useState } from "react";
+import { useForm } from '@inertiajs/inertia-react'
 import { contactInfo } from "./Data";
+import { Inertia } from '@inertiajs/inertia'
 
 const Navbar = ({ seo, page }) => {
+    const [values, setValues] = useState({
+        query: "",
+    })
+
+    function handleChange(e) {
+        const key = e.target.id;
+        const value = e.target.value
+        setValues(values => ({
+            ...values,
+            [key]: value,
+        }))
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault()
+        Inertia.get(route("client.search.index"), values)
+    }
+
     const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
     const sharedData = usePage().props.localizations;
 
@@ -180,18 +199,28 @@ const Navbar = ({ seo, page }) => {
                                 );
                             })}
                         </div>
-                        <div className="lg:relative lg:top-auto lg:right-auto flex items-center justify-between bg-custom-blue-900/[.1] h-12 px-5 lg:w-72 absolute top-0 right-0 w-full">
+
+                        <form onSubmit={handleSubmit} className="lg:relative lg:top-auto lg:right-auto flex items-center justify-between bg-custom-blue-900/[.1] h-12 px-5 lg:w-72 absolute top-0 right-0 w-full">
                             <input
-                                type="text "
+                                id="query"
+                                value={values.query}
+                                onChange={handleChange}
+                                type="text"
+                                name='query'
                                 className="h-full w-full outline-0  bg-transparent  text-sm placeholder:text-custom-blue-900"
-                                placeholder="მოძებნე პროდუქტი"
+                                placeholder={__("client.navbar_search", sharedData)}
                             />
-                            <FiSearch className=" shrink-0 w-6 h-6" />
-                        </div>
+                            {/* <FiSearch className=" shrink-0 w-6 h-6" /> */}
+                            <button type="submit"><FiSearch className=" shrink-0 w-6 h-6" /></button>
+                        </form>
+
+
+
+
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

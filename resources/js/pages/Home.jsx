@@ -24,16 +24,19 @@ const Home = ({ seo, page, partners, tiles, doors, bath }) => {
     console.log(doors.data);
     const tileSlider = [], doorsHome = [], bathroom = [];
 
-    tiles.data.map((e, i) => {
-        tileSlider.push(
-            {
-                name: e.title,
-                size: `${e.height} X ${e.width}`,
-                img: `${e.latest_image.path}/${e.latest_image.title}`,
-                link: route("client.singleproduct.show", e.id),
-            },
-        )
-    })
+    if (tiles.data) {
+        tiles.data.map((e, i) => {
+            tileSlider.push(
+                {
+                    name: e.title,
+                    size: `${e.height} X ${e.width}`,
+                    img: `${e.latest_image.path}/${e.latest_image.title}`,
+                    link: route("client.singleproduct.show", e.id),
+                },
+            )
+        })
+    }
+
 
     if (doors.data) {
         doors.data.map((e, i) => {
@@ -49,7 +52,7 @@ const Home = ({ seo, page, partners, tiles, doors, bath }) => {
     }
     if (bath.data) {
         bath.data.map((e, i) => {
-            doorsHome.push(
+            bathroom.push(
                 {
                     name: e.title,
                     size: `${e.height} X ${e.width}`,

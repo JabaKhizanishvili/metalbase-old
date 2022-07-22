@@ -351,4 +351,49 @@ class TilesController extends Controller
             'og_description' => $page->meta_og_description
         ]);
     }
+
+    public function search(Request $request)
+    {
+        $searchedProducts = Product::with(['latestImage', 'translations'])->where('title', 'LIKE', '%' . $request->get('query') . '%')->get();
+        dd(Product::with(['latestImage', 'translations'])->get());
+
+        $page = Page::where('key', 'home')->firstOrFail();
+
+        $images = [];
+        foreach ($page->sections as $sections) {
+            if ($sections->file) {
+                $images[] = asset($sections->file->getFileUrlAttribute());
+            } else {
+                $images[] = null;
+            }
+        }
+
+        $sliders = Slider::query()->where("status", 1)->with(['file', 'translations']);
+
+        return Inertia::render(
+            'Search',
+            [
+                // "staff" => Staff::all(),
+                "product" => Product::with(['latestImage', 'translations'])->where("category_id", 7)->paginate(10),
+                "sliders" => $sliders->get(),
+                "page" => $page,
+                "seo" => [
+                    "title" => $page->meta_title,
+                    "description" => $page->meta_description,
+                    "keywords" => $page->meta_keyword,
+                    "og_title" => $page->meta_og_title,
+                    "og_description" => $page->meta_og_description,
+                    //            "image" => "imgg",
+                    //            "locale" => App::getLocale()
+                ],
+            ]
+        )->withViewData([
+            'meta_title' => $page->meta_title,
+            'meta_description' => $page->meta_description,
+            'meta_keyword' => $page->meta_keyword,
+            "image" => $page->file,
+            'og_title' => $page->meta_og_title,
+            'og_description' => $page->meta_og_description
+        ]);
+    }
 }

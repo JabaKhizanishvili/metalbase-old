@@ -10,8 +10,6 @@ import { Link, usePage } from '@inertiajs/inertia-react'
 const Bathroom = ({ seo, page, product }) => {
     let links = function (links) {
         let rows = [];
-        //links.shift();
-        //links.splice(-1);
         {
             links.map(function (item, index) {
                 if (index > 0 && index < links.length - 1) {
