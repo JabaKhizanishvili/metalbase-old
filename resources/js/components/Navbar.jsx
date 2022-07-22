@@ -94,6 +94,57 @@ const Navbar = ({ seo, page }) => {
     }
     const [showMenu, setShowMenu] = useState(false);
     const { errors, gphone, gemail, gaddress, locales, currentLocale, locale_urls } = usePage().props;
+
+    const categoryDropdown = [
+        {
+            link: route("client.metalprofiles.index"),
+            text: __("client.footer_profile_miles", sharedData),
+        },
+        {
+            link: route("client.mile.index"),
+            text: __("client.footer_miles", sharedData),
+        },
+        {
+            link: route("client.metalpaper.index"),
+            text: __("client.footer_metal_paper", sharedData),
+        },
+        {
+            link: route("client.metalpaper.index1"),
+            text: __("client.footer_metal_paper1", sharedData),
+        },
+        {
+            link: route("client.metalpaper.index2"),
+            text: __("client.footer_metal_paper2", sharedData),
+        },
+        {
+            link: route("client.ortisebri.index"),
+            text: __("client.footer_ortesebri", sharedData),
+        },
+        {
+            link: route("client.shveleri.index"),
+            text: __("client.footer_shveleri", sharedData),
+        },
+        {
+            link: route("client.kutxovana.index"),
+            text: __("client.footer_kutxovana", sharedData),
+        },
+        {
+            link: route("client.zolovana.index"),
+            text: __("client.footer_zolovana", sharedData),
+        },
+        {
+            link: route("client.kvadrati.index"),
+            text: __("client.footer_kvadrati", sharedData),
+        },
+        {
+            link: route("client.granula.index"),
+            text: __("client.footer_granula", sharedData),
+        },
+        {
+            link: route("client.armatura.index"),
+            text: __("client.footer_armatura", sharedData),
+        },
+    ];
     return (
         <div className="text-sm relative z-50 h-12 bg-custom-blue-900 lg:h-auto flex items-center justify-between">
             <Link href="/" className="lg:hidden pl-3">
@@ -175,7 +226,7 @@ const Navbar = ({ seo, page }) => {
                             <div className="lg:inline-block block text-center px-4 lg:py-5 py-3 whitespace-nowrap  hover:bg-custom-blue-500/[.1] box-border group cursor-pointer relative ">
                                 {__("client.navbar_irons", sharedData)}
                                 <BiChevronDown className="inline-block -mt-1 transition group-hover:rotate-180" />
-                                <div className="absolute lg:left-0 left-1/2 -translate-x-1/2 lg:translate-x-0 top-full bg-white py-5 px-3 z-40 transition opacity-0 invisible translate-y-5 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0  lg:border-transparent border-custom-blue-500/[.1] border">
+                                <div className="absolute lg:left-0 left-1/2 -translate-x-1/2 lg:translate-x-0 top-full bg-white py-5 px-3 z-40 transition opacity-0 invisible translate-y-5 group-hover:!visible group-hover:!opacity-100 group-hover:translate-y-0  lg:border-transparent border-custom-blue-500/[.1] border">
                                     {categoryDropdown.map((item, index) => {
                                         return (
                                             <Link

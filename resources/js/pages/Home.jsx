@@ -21,7 +21,6 @@ import ProductSlider from "../components/ProductSlider";
 
 const Home = ({ seo, page, partners, tiles, doors, bath }) => {
 
-    console.log(doors.data);
     const tileSlider = [], doorsHome = [], bathroom = [];
 
     if (tiles.data) {
@@ -155,7 +154,7 @@ const Home = ({ seo, page, partners, tiles, doors, bath }) => {
                     <Link href="/partners" className="text-lg hover:underline">
                         {/* <PartnerIcon className="inline-block align-middle mr-2" /> */}
                         <img className="inline-block align-middle mr-2" src="/assets/images/icons/svg/partners.svg" />
-                        ჩვენი პარტნიორები
+                        {__("client.navbar_partners", sharedData)}
                     </Link>
                     <div className="block text-center py-10">
                         {partners.map((item) => {
@@ -185,7 +184,7 @@ const Home = ({ seo, page, partners, tiles, doors, bath }) => {
                             {/* <TilesIcon className="inline-block align-middle mr-2" /> */}
 
                             <img className="inline-block align-middle mr-2" src="/assets/images/icons/svg/tiles.svg" />
-                            ფილები
+                            {__("client.navbar_tiles", sharedData)}
                         </Link>
                         <ProductSlider data={tileSlider} />
 
@@ -198,7 +197,7 @@ const Home = ({ seo, page, partners, tiles, doors, bath }) => {
                     <Link href={route("client.tiles2.index")} className="text-lg  hover:underline">
                         {/* <DoorIcon className="inline-block align-middle mr-2" /> */}
                         <img className="inline-block align-middle mr-2" src="/assets/images/icons/svg/door.svg" />
-                        კარები
+                        {__("client.navbar_doors", sharedData)}
                     </Link>
                     <ProductSlider data={doorsHome} />
                 </section>
@@ -206,7 +205,7 @@ const Home = ({ seo, page, partners, tiles, doors, bath }) => {
                     <Link href="/" className="text-lg  hover:underline">
                         {/* <Bathroom className="inline-block align-middle mr-2" /> */}
                         <img className="inline-block align-middle mr-2" src="/assets/images/icons/svg/bathroom.svg" />
-                        აბაზანის ავეჯი
+                        {__("client.navbar_bathroom", sharedData)}
                     </Link>
                     <ProductSlider data={bathroom} />
                 </section>

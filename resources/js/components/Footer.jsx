@@ -7,56 +7,6 @@ import { Form } from "./Shared";
 // import { ReactComponent as Tel } from "/assets/images/icons/svg/tel.svg";
 
 const Footer = () => {
-    const categoryDropdown = [
-        {
-            link: route("client.metalprofiles.index"),
-            text: " პროფილი - მილკვადრატი",
-        },
-        {
-            link: route("client.mile.index"),
-            text: "მილი",
-        },
-        {
-            link: route("client.metalpaper.index"),
-            text: "ლითონის ფურცელი",
-        },
-        {
-            link: route("client.metalpaper.index1"),
-            text: "ლითონის ფურცელი დაჟატული",
-        },
-        {
-            link: route("client.metalpaper.index2"),
-            text: "ლითონის ფურცელი დახვრეტილი",
-        },
-        {
-            link: route("client.ortisebri.index"),
-            text: "ორტესებრი",
-        },
-        {
-            link: route("client.shveleri.index"),
-            text: "შველერი",
-        },
-        {
-            link: route("client.kutxovana.index"),
-            text: "კუთხოვანა",
-        },
-        {
-            link: route("client.zolovana.index"),
-            text: "ზოლოვანა",
-        },
-        {
-            link: route("client.kvadrati.index"),
-            text: "კვადრატი",
-        },
-        {
-            link: route("client.granula.index"),
-            text: "გლინულა",
-        },
-        {
-            link: route("client.armatura.index"),
-            text: "არმატურა",
-        },
-    ];
     const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
     const sharedData = usePage().props.localizations;
     const { errors, gphone, gemail, gaddress } = usePage().props;
@@ -77,6 +27,57 @@ const Footer = () => {
         {
             link: route("client.contact.index"),
             text: __("client.navbar_contact", sharedData),
+        },
+    ];
+
+    const categoryDropdown = [
+        {
+            link: route("client.metalprofiles.index"),
+            text: __("client.footer_profile_miles", sharedData),
+        },
+        {
+            link: route("client.mile.index"),
+            text: __("client.footer_miles", sharedData),
+        },
+        {
+            link: route("client.metalpaper.index"),
+            text: __("client.footer_metal_paper", sharedData),
+        },
+        {
+            link: route("client.metalpaper.index1"),
+            text: __("client.footer_metal_paper1", sharedData),
+        },
+        {
+            link: route("client.metalpaper.index2"),
+            text: __("client.footer_metal_paper2", sharedData),
+        },
+        {
+            link: route("client.ortisebri.index"),
+            text: __("client.footer_ortesebri", sharedData),
+        },
+        {
+            link: route("client.shveleri.index"),
+            text: __("client.footer_shveleri", sharedData),
+        },
+        {
+            link: route("client.kutxovana.index"),
+            text: __("client.footer_kutxovana", sharedData),
+        },
+        {
+            link: route("client.zolovana.index"),
+            text: __("client.footer_zolovana", sharedData),
+        },
+        {
+            link: route("client.kvadrati.index"),
+            text: __("client.footer_kvadrati", sharedData),
+        },
+        {
+            link: route("client.granula.index"),
+            text: __("client.footer_granula", sharedData),
+        },
+        {
+            link: route("client.armatura.index"),
+            text: __("client.footer_armatura", sharedData),
         },
     ];
 
@@ -130,7 +131,7 @@ const Footer = () => {
                         <div className="flex flex-col sm:flex-row">
                             <div className="mr-10">
                                 <div className="border-b border-white/[0.1] pb-1 mb-4">
-                                    რკინეული
+                                    {__("client.footer_irons", sharedData)}
                                 </div>
                                 {categoryDropdown.map((item, index) => {
                                     return (
@@ -162,7 +163,7 @@ const Footer = () => {
                     </div>
                     <div className="lg:w-1/3 w-full lg:ml-8">
                         <div className=" lg:mr-8 mr-3  text-xs sm:text-sm md:text-lg xl:text-xl inline-block border-b border-white/[0.1] mb-12 pb-3 ">
-                            გაქვთ კითხვები?
+                            {__("client.footer_anyquestions", sharedData)}
                         </div>
                         <Form dark />
                         <a href="#" className="block mt-6">

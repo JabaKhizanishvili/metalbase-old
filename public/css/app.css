@@ -1422,6 +1422,10 @@ img {
   visibility: visible;
 }
 
+.group:hover .group-hover\:\!visible {
+  visibility: visible !important;
+}
+
 .group:hover .group-hover\:block {
   display: block;
 }
@@ -1438,6 +1442,10 @@ img {
 
 .group:hover .group-hover\:opacity-100 {
   opacity: 1;
+}
+
+.group:hover .group-hover\:\!opacity-100 {
+  opacity: 1 !important;
 }
 
 @media (min-width: 640px) {
@@ -1564,14 +1572,6 @@ img {
 
   .lg\:right-auto {
     right: auto;
-  }
-
-  .lg\:right-1 {
-    right: 0.25rem;
-  }
-
-  .lg\:right-5 {
-    right: 1.25rem;
   }
 
   .lg\:mx-0 {
