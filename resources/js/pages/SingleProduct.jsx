@@ -14,6 +14,9 @@ import { CgChevronDoubleRight } from "react-icons/cg";
 
 const SingleProduct = ({ seo, page, product, sameproduct }) => {
 
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    const sharedData = usePage().props.localizations;
+
     console.log(sameproduct, 'esa');
     const otherItems = [
         {
@@ -45,9 +48,9 @@ const SingleProduct = ({ seo, page, product, sameproduct }) => {
         <Layout seo={seo}>
             <div className="wrapper">
                 <div className="block pt-6">
-                    <p className="opacity-50 inline-block  lowercase">მთავარი</p>
+                    <p className="opacity-50 inline-block  lowercase">{__("client.navbar_main", sharedData)}</p>
                     <BiChevronRight className="inline-block mx-1" />
-                    <p className="  inline-block lowercase">ფილები</p>
+                    <p className="  inline-block lowercase">{__("client.navbar_tiles", sharedData)}</p>
                 </div>
                 <div className="mt-10 mb-12 text-2xl ">
                     {/* <TilesIcon className="inline-block" /> Arabesco Antic Marfil */}
@@ -84,7 +87,7 @@ const SingleProduct = ({ seo, page, product, sameproduct }) => {
                         </div>
                     </div>
                 </div>
-                <div className="mb-5">მსგავსი პროდუქტი</div>
+                <div className="mb-5">{__("client.irons_same_products", sharedData)}</div>
                 <div className="block pb-20">
                     {sameproduct.map((item, index) => {
                         return (

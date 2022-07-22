@@ -23,6 +23,7 @@ const Contact = ({ seo, page, gphone, gemail, gaddress }) => {
                         </div>
                         <div className="text-lg mb-5 sm:mt-20 mt-10">
                             {__("client.contact_contact_info", sharedData)}
+
                         </div>
                         <a href={`tel:${contactInfo.tel}`} className="flex items-center mt-6">
                             <div className="w-12 h-12 rounded-full flex items-center justify-center mr-2 bg-custom-blue-900/[0.1]">

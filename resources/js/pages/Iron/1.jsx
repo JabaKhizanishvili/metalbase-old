@@ -9,35 +9,39 @@ import { FaPhone } from "react-icons/fa";
 // import img4 from "../../assets/images/iron/4.png";
 // import img5 from "../../assets/images/iron/5.png";
 // import img6 from "../../assets/images/iron/6.png";
-import { Link } from '@inertiajs/inertia-react';
+import { Link, usePage } from '@inertiajs/inertia-react';
 import Layout from "../../Layouts/Layout";
 
-const Iron1 = ({ seo, page }) => {
+const Iron1 = ({ seo, page, gphone, gemail, gaddress }) => {
+
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    const sharedData = usePage().props.localizations;
+
     const otherIrons = [
         {
             img: "/assets/images/iron/2.png",
-            name: "ორტესებრი",
-            link: "/iron/2",
+            name: __("client.footer_ortesebri", sharedData),
+            link: route("client.ortisebri.index"),
         },
         {
             img: "/assets/images/iron/3.png",
-            name: "გლინულა",
-            link: "/iron/2",
+            name: __("client.footer_granula", sharedData),
+            link: route("client.granula.index"),
         },
         {
             img: "/assets/images/iron/4.png",
-            name: "არმატურა",
-            link: "/iron/2",
+            name: __("client.footer_armatura", sharedData),
+            link: route("client.armatura.index"),
         },
         {
             img: "/assets/images/iron/5.png",
-            name: "კუთხოვანა",
-            link: "/iron/2",
+            name: __("client.footer_kutxovana", sharedData),
+            link: route("client.kutxovana.index"),
         },
         {
             img: "/assets/images/iron/6.png",
-            name: "მილი",
-            link: "/iron/2",
+            name: __("client.footer_miles", sharedData),
+            link: route("client.mile.index"),
         },
     ];
     return (
@@ -45,13 +49,13 @@ const Iron1 = ({ seo, page }) => {
             <div>
                 <div className="wrapper">
                     <div className="block pt-6">
-                        <p className="opacity-50 inline-block  lowercase">მთავარი</p>
+                        <p className="opacity-50 inline-block  lowercase">{__("client.navbar_irons", sharedData)}</p>
                         <BiChevronRight className="inline-block mx-1" />
-                        <p className="opacity-50  inline-block lowercase">რკინეული</p>
+                        <p className="opacity-50  inline-block lowercase">{__("client.navbar_irons", sharedData)}</p>
                         <BiChevronRight className="inline-block mx-1" />
-                        <p className="inline-block lowercase">პროფილი - მილკვადრატი</p>
+                        <p className="inline-block lowercase">{__("client.footer_profile_miles", sharedData)}</p>
                     </div>
-                    <div className="text-3xl my-10">პროფილი - მილკვადრატი</div>
+                    <div className="text-3xl my-10">{__("client.footer_profile_miles", sharedData)}</div>
                 </div>
                 <div
                     className="py-10 mb-20 bg-cover bg-no-repeat bg-center relative overflow-hidden"
@@ -64,9 +68,7 @@ const Iron1 = ({ seo, page }) => {
                     />
                     <div className="wrapper">
                         <div className="max-w-lg lowercase text-justify relative z-20">
-                            პროდუქტის აღწერა, რა არის, რისთვის გამოიყენება, როგორ მზადდება. ამ
-                            კონკრეტულ შემთხვევაში როგორი ხარისხისაა, საიდან არის შემოტანილი ან
-                            სადაა წარმოებული და ა.შ.
+
                         </div>
                         <select
                             name=""
@@ -74,7 +76,7 @@ const Iron1 = ({ seo, page }) => {
                             className="my-10 h-12 px-4 text- border border-custom-blue-900 outline-0"
                         >
                             <option className="py-2 text-sm lowercase" value="">
-                                შეარჩიე ზომა
+                                {__("client.irons_choose_size", sharedData)}
                             </option>
                             <option className="py-2 text-sm lowercase" value="">
                                 ეაეშ ზრჩიომა
@@ -86,12 +88,12 @@ const Iron1 = ({ seo, page }) => {
                                 ჩიე ზოშეარმაშეა
                             </option>
                         </select>
-                        <div>შესაკვეთად დაგვიკავშირდით</div>
+                        <div>{__("client.irons_contact_us", sharedData)}</div>
                         <a href={`tel:${contactInfo.tel}`}>
                             <FaPhone className="inline-block mr-2" />
-                            {contactInfo.tel}
+                            {gphone.value}
                         </a>
-                        <div className="mt-12 mb-4">მსგავსი პროდუქტი</div>
+                        <div className="mt-12 mb-4">{__("client.irons_same_products", sharedData)}</div>
                         <div className="block">
                             {otherIrons.map((item, index) => {
                                 return (
