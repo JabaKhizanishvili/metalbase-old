@@ -1,9 +1,12 @@
 import { BiChevronRight } from "react-icons/bi";
 // import { Link } from "react-router-dom";
-import { Link } from '@inertiajs/inertia-react'
 import React from "react";
+import { Link, usePage } from '@inertiajs/inertia-react'
 
 export const ProductBox = (props) => {
+
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    const sharedData = usePage().props.localizations;
     return (
         <div className={`p-4 transition hover:bg-zinc-50 relative max-w-sm`}>
             <div className="text-xl whitespace-nowrap mb-2">{props.name}</div>
@@ -16,7 +19,7 @@ export const ProductBox = (props) => {
                 />
             </div>
             <Link to={props.link} className="lowercase ">
-                ნახე სრულად <BiChevronRight className="inline-block" />
+                {__("client.home_btn", sharedData)} <BiChevronRight className="inline-block" />
             </Link>
         </div>
     );
@@ -25,21 +28,22 @@ export const ProductBox = (props) => {
 export const Form = ({ dark }) => {
     const classList = `block bg-transparent border  mb-2 w-full h-10 pl-5 lowercase  outline-0 border-${dark ? "white/[0.1]" : "custom-blue-900"
         } placeholder:text-${dark ? "white " : "custom-blue-900 "}`;
-
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    const sharedData = usePage().props.localizations;
     return (
         <form className="w-full">
-            <input type="text" placeholder="სახელი გვარი" className={classList} />
-            <input type="text" placeholder="ტელეფონის ნომერი" className={classList} />
-            <input type="text" placeholder="ელფოსტა" className={classList} />
+            <input type="text" placeholder={__("client_form.fullname", sharedData)} className={classList} />
+            <input type="text" placeholder={__("client_form.phone", sharedData)} className={classList} />
+            <input type="text" placeholder={__("client_form.mail", sharedData)} className={classList} />
             <textarea
-                placeholder="შეტყობინება"
+                placeholder={__("client_form.massage", sharedData)}
                 className={classList + " !mb-6 h-24 pt-2"}
             ></textarea>
             <button
                 className={`bg-custom-blue-900 text-white w-full h-12 border-white/[0.1] ${dark && "border"
                     } `}
             >
-                გაგზავნა
+                {__("client.sendmail.btn", sharedData)}
             </button>
         </form>
     );

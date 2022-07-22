@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Inertia\Inertia;
 use App\Repositories\Eloquent\ProductRepository;
 use App\Models\Product;
+use App\Models\Category;
 
 
 
@@ -354,8 +355,10 @@ class TilesController extends Controller
 
     public function search(Request $request)
     {
-        $searchedProducts = Product::with(['latestImage', 'translations'])->where('title', 'LIKE', '%' . $request->get('query') . '%')->get();
-        dd(Product::with(['latestImage', 'translations'])->get());
+        $searchedProducts = Product::with(['latestImage', 'translation'])->whereTranslationLike('title', '%' . $request->get('query') . '%')
+            ->orWhereTranslationLike('description', '%' . $request->get('query') . '%')->get();
+        // dd($searchedProducts);
+
 
         $page = Page::where('key', 'home')->firstOrFail();
 
@@ -373,6 +376,7 @@ class TilesController extends Controller
         return Inertia::render(
             'Search',
             [
+                "search" => $searchedProducts,
                 // "staff" => Staff::all(),
                 "product" => Product::with(['latestImage', 'translations'])->where("category_id", 7)->paginate(10),
                 "sliders" => $sliders->get(),

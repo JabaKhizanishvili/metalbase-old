@@ -6,8 +6,8 @@ import { ProductBox } from "../components/Shared";
 import { BiChevronRight } from "react-icons/bi";
 import Layout from "../Layouts/Layout";
 
-const Tiles = ({ seo, page, product, name }) => {
-    console.log(product, 'esaa');
+const Tiles = ({ seo, page, product, name, search }) => {
+    console.log(search, 'esaa');
 
     let links = function (links) {
         let rows = [];
@@ -77,7 +77,7 @@ const Tiles = ({ seo, page, product, name }) => {
                     </div> */}
 
                     <div className="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-5 pb-20">
-                        {product.data.map((item, index) => {
+                        {search.map((item, index) => {
                             return (
                                 <div className={`p-4 transition hover:bg-zinc-50 relative max-w-sm`} key={index}>
                                     <div className="text-xl whitespace-nowrap mb-2">{item.title}</div>

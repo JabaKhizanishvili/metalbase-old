@@ -75,12 +75,12 @@ const Home = ({ seo, page, partners, tiles, doors, bath }) => {
                 </section>
                 <section className="grid lg:grid-cols-2  w-full h-fit">
                     <div className="grid sm:grid-cols-2 ">
-                        <Link href="/">
+                        <Link href={route("client.mile.index")}>
                             <div className="p-6 h-72  relative bg-slate-200 overflow-hidden">
-                                <div className="opacity-50 lowercase ">რკინეული</div>
-                                <div className="text-2xl my-2">მილკვადრატი</div>
+                                <div className="opacity-50 lowercase ">{__("client.footer_irons", sharedData)}</div>
+                                <div className="text-2xl my-2">{__("client.footer_miles", sharedData)}</div>
                                 <div className="lowercase">
-                                    ნახე სრულად <BiChevronRight className="inline-block" />
+                                    {__("client.home_btn", sharedData)} <BiChevronRight className="inline-block" />
                                 </div>
                                 <img
                                     src="/assets/images/home/1.png"
@@ -91,10 +91,10 @@ const Home = ({ seo, page, partners, tiles, doors, bath }) => {
                         </Link>
                         <Link href="/">
                             <div className="p-6 h-72  relative bg-zinc-100 overflow-hidden">
-                                <div className="opacity-50 lowercase ">რკინეული</div>
-                                <div className="text-2xl my-2">ორტესებრი</div>
+                                <div className="opacity-50 lowercase ">{__("client.footer_irons", sharedData)}</div>
+                                <div className="text-2xl my-2">{__("client.footer_ortesebri", sharedData)}</div>
                                 <div className="lowercase">
-                                    ნახე სრულად <BiChevronRight className="inline-block" />
+                                    {__("client.home_btn", sharedData)} <BiChevronRight className="inline-block" />
                                 </div>
                                 <img
                                     src="/assets/images/home/2.png"
@@ -103,12 +103,12 @@ const Home = ({ seo, page, partners, tiles, doors, bath }) => {
                                 />
                             </div>
                         </Link>
-                        <Link href="/">
+                        <Link href={route("client.metalpaper.index2")}>
                             <div className="p-6 h-72  relative text-white overflow-hidden bg-gradient-to-b from-custom-blue-900/[0.5]">
-                                <div className="opacity-50 lowercase ">რკინეული</div>
-                                <div className="text-2xl my-2">მეტალის ფურცელი - დაჟატული</div>
+                                <div className="opacity-50 lowercase ">{__("client.footer_irons", sharedData)}</div>
+                                <div className="text-2xl my-2">{__("client.footer_metal_paper2", sharedData)}</div>
                                 <div className="lowercase">
-                                    ნახე სრულად <BiChevronRight className="inline-block" />
+                                    {__("client.home_btn", sharedData)} <BiChevronRight className="inline-block" />
                                 </div>
                                 <img
                                     src="/assets/images/home/3.png"
@@ -117,12 +117,12 @@ const Home = ({ seo, page, partners, tiles, doors, bath }) => {
                                 />
                             </div>
                         </Link>
-                        <Link href="/">
+                        <Link href={route("client.granula.index")}>
                             <div className="p-6 h-72  relative bg-gray-200 overflow-hidden">
-                                <div className="opacity-50 lowercase ">რკინეული</div>
-                                <div className="text-2xl my-2">გლინულა</div>
+                                <div className="opacity-50 lowercase ">{__("client.footer_irons", sharedData)}</div>
+                                <div className="text-2xl my-2">{__("client.footer_granula", sharedData)}</div>
                                 <div className="lowercase">
-                                    ნახე სრულად <BiChevronRight className="inline-block" />
+                                    {__("client.home_btn", sharedData)} <BiChevronRight className="inline-block" />
                                 </div>
                                 <img
                                     src="/assets/images/home/4.png"
@@ -134,12 +134,12 @@ const Home = ({ seo, page, partners, tiles, doors, bath }) => {
                     </div>
                     <div className="">
                         {" "}
-                        <Link href="/">
+                        <Link href={route("client.armatura.index")}>
                             <div className="p-6 lg:h-full h-72 text-white relative bg-zinc-100 overflow-hidden bg-gradient-to-b from-custom-blue-900/[0.5]">
-                                <div className="opacity-50 lowercase ">რკინეული</div>
-                                <div className="text-4xl my-5">არმატურა</div>
+                                <div className="opacity-50 lowercase ">{__("client.footer_irons", sharedData)}</div>
+                                <div className="text-4xl my-5">{__("client.footer_armatura", sharedData)}</div>
                                 <div className="lowercase">
-                                    ნახე სრულად <BiChevronRight className="inline-block" />
+                                    {__("client.home_btn", sharedData)} <BiChevronRight className="inline-block" />
                                 </div>
                                 <img
                                     src="/assets/images/home/5.png"
