@@ -8,6 +8,12 @@ import Layout from "../Layouts/Layout";
 import { BiChevronRight } from "react-icons/bi";
 
 const Doors = ({ seo, page, product, product1 }) => {
+
+
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    const sharedData = usePage().props.localizations;
+
+
     let links = function (links) {
         let rows = [];
         //links.shift();
@@ -69,13 +75,13 @@ const Doors = ({ seo, page, product, product1 }) => {
             <div className="bg-neutral-100">
                 <div className="wrapper">
                     <div className="block pt-6">
-                        <p className="opacity-50 inline-block  lowercase">მთავარი</p>
+                        <p className="opacity-50 inline-block  lowercase">{__("client.navbar_main", sharedData)}</p>
                         <BiChevronRight className="inline-block mx-1" />
-                        <p className="  inline-block lowercase">კარები</p>
+                        <p className="  inline-block lowercase">{__("client.navbar_doors", sharedData)}</p>
                     </div>
                     <div className="mt-10 mb-12 text-2xl ">
                         {/* <DoorsIcon className="inline-block" /> რკინის კარი */}
-                        <img className="inline-block" src="/assets/images/icons/svg/door.svg" /> რკინის კარი
+                        <img className="inline-block" src="/assets/images/icons/svg/door.svg" /> {__("client.navbar_krinis_kari", sharedData)}
                     </div>
                     <div className="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-5 pb-20">
                         {product.data.map((item, index) => {
@@ -99,7 +105,7 @@ const Doors = ({ seo, page, product, product1 }) => {
                                             : null} alt="" />
                                     </div>
                                     <Link href={route("client.singleproduct.show", item.id)} className="lowercase ">
-                                        ნახე სრულად <BiChevronRight className="inline-block" />
+                                        {__("client.product.btn", sharedData)} <BiChevronRight className="inline-block" />
                                     </Link>
                                 </div>
                             );
@@ -120,7 +126,7 @@ const Doors = ({ seo, page, product, product1 }) => {
 
 
                     <div className="mt-10 mb-12 text-2xl ">
-                        <img className="inline-block" src="/assets/images/icons/svg/door.svg" /> ხის კარი
+                        <img className="inline-block" src="/assets/images/icons/svg/door.svg" /> {__("client.navbar_xis_kari", sharedData)}
                         {/* <DoorsIcon className="inline-block" /> ხის კარი */}
                     </div>
                     <div className="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-5 pb-20">
@@ -145,7 +151,7 @@ const Doors = ({ seo, page, product, product1 }) => {
                                             : null} alt="" />
                                     </div>
                                     <Link href={route("client.singleproduct.show", item.id)} className="lowercase ">
-                                        ნახე სრულად <BiChevronRight className="inline-block" />
+                                        {__("client.product.btn", sharedData)} <BiChevronRight className="inline-block" />
                                     </Link>
                                 </div>
                             );

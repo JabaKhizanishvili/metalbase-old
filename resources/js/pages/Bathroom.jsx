@@ -8,6 +8,11 @@ import { Link, usePage } from '@inertiajs/inertia-react'
 
 
 const Bathroom = ({ seo, page, product }) => {
+
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    const sharedData = usePage().props.localizations;
+
+
     let links = function (links) {
         let rows = [];
         {
@@ -67,13 +72,13 @@ const Bathroom = ({ seo, page, product }) => {
             <div className="bg-neutral-100">
                 <div className="wrapper">
                     <div className="block pt-6">
-                        <p className="opacity-50 inline-block  lowercase">მთავარი</p>
+                        <p className="opacity-50 inline-block  lowercase">{__("client.navbar_main", sharedData)}</p>
                         <BiChevronRight className="inline-block mx-1" />
-                        <p className="  inline-block lowercase">აბაზანის ავეჯი</p>
+                        <p className="  inline-block lowercase">{__("client.navbar_bathroom", sharedData)}</p>
                     </div>
                     <div className="mt-10 mb-12 text-2xl ">
-                        {/* <BathroomIcon className="inline-block" /> აბაზანის ავეჯი */}
-                        <img className="inline-block" src="/assets/images/icons/svg/bathroom.svg" /> აბაზანის ავეჯი
+                        {/* <BathroomIcon className="inline-block" /> {__("client.navbar_bathroom", sharedData)} */}
+                        <img className="inline-block" src="/assets/images/icons/svg/bathroom.svg" /> {__("client.navbar_bathroom", sharedData)}
                     </div>
                     <div className="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-5 pb-20">
                         {product.data.map((item, index) => {
@@ -97,7 +102,7 @@ const Bathroom = ({ seo, page, product }) => {
                                             : null} alt="" />
                                     </div>
                                     <Link href={route("client.singleproduct.show", item.id)} className="lowercase ">
-                                        ნახე სრულად <BiChevronRight className="inline-block" />
+                                        {__("client.product.btn", sharedData)} <BiChevronRight className="inline-block" />
                                     </Link>
                                 </div>
                             );
